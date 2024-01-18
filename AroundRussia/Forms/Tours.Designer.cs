@@ -34,11 +34,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(454, 12);
+            this.textBox1.Location = new System.Drawing.Point(293, 17);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(188, 23);
             this.textBox1.TabIndex = 0;
@@ -46,7 +53,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(454, 41);
+            this.comboBox1.Location = new System.Drawing.Point(293, 46);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(188, 23);
             this.comboBox1.TabIndex = 1;
@@ -54,7 +61,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(300, 15);
+            this.label1.Location = new System.Drawing.Point(139, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(148, 15);
             this.label1.TabIndex = 2;
@@ -63,7 +70,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(362, 44);
+            this.label2.Location = new System.Drawing.Point(201, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(86, 15);
             this.label2.TabIndex = 3;
@@ -72,18 +79,65 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(454, 80);
+            this.checkBox1.Location = new System.Drawing.Point(293, 85);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(162, 19);
             this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Только актуальные туры";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.pictureBox1);
+            this.panel1.Location = new System.Drawing.Point(10, 134);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(300, 250);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.Location = new System.Drawing.Point(320, 134);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(300, 192);
+            this.panel2.TabIndex = 6;
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(630, 134);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(300, 192);
+            this.panel3.TabIndex = 7;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(15, 50);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(270, 120);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(110, 173);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 30);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "price";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
             // Tours
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 559);
+            this.ClientSize = new System.Drawing.Size(944, 559);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -93,6 +147,9 @@
             this.Name = "Tours";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Туры";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -105,5 +162,10 @@
         private Label label1;
         private Label label2;
         private CheckBox checkBox1;
+        private Panel panel1;
+        private PictureBox pictureBox1;
+        private Panel panel2;
+        private Panel panel3;
+        private Label label3;
     }
 }
