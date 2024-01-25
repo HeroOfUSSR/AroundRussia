@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using AroundRussia.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Type = AroundRussia.Models.Type;
 
-namespace AroundRussia.Models
+namespace AroundRussia.DBContext
 {
     public partial class AroundRussiaContext : DbContext
     {
@@ -24,15 +26,6 @@ namespace AroundRussia.Models
         public virtual DbSet<Tour> Tours { get; set; } = null!;
         public virtual DbSet<Type> Types { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Data Source=gogs.wsr.ru; Initial Catalog=AroundRussia; User Id=2339-20; Password=dO6t4KyC");
-            }
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
