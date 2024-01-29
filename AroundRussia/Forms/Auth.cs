@@ -2,6 +2,7 @@ using AroundRussia.DBContext;
 using AroundRussia.Forms;
 using AroundRussia.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Xml;
 
 namespace AroundRussia
 {
@@ -22,56 +23,33 @@ namespace AroundRussia
 
                 if (db.Users.Any(a => a.Username == login && a.Password == password))
                 {
+                    var currentUser = db.Users.FirstOrDefault(a => a.Username == login && a.Password == password);
                     Tours ToursForm = new Tours();
                     ToursForm.Show();
+                    switch (currentUser.RoleId)
+                    {
+                        case 1:
+                            Profiles.Profiles.admin = true;
+                            break;
+                        case 2:
+                            Profiles.Profiles.manager = true;
+                            break;
+                        case 3:
+                            Profiles.Profiles.user = true;
+                            break;
+                    }
+                        
                 } else
                 {
-                    MessageBox.Show("ТЫ ЧЕПУХА");
+                    MessageBox.Show("Неверный пароль или логин", "Ошибка авторизации");
                 }
-
-                /*var admin = db.Users.FirstOrDefault(a => a.Username).Where(a => a.RoleId == 1);
-                var manager = db.Users.FirstOrDefault(m => m.RoleId == 2);
-                var user = db.Users.FirstOrDefault(u => u.RoleId == 3);
-
-                switch (login.Text)
-                {
-                    case admin:
-                        break;
-
-                }
-
-                var admins = db.Users
-                    .Where(a => a.RoleId == 1)
-                    .Select(a => a.Username)
-                    .ToList();
-
-                var managers = db.Users
-                    .Where(a => a.RoleId == 2)
-                    .Select(a => a.Username)
-                    .ToList();
-
-                var clients = db.Users
-                    .Where(a => a.RoleId == 3)
-                    .Select(a => a.Username)
-                    .ToList();
-
-                foreach (var admin in admins) 
-                { 
-                    if (login.Text == admin.ToString())
-                    {
-                        Tours ToursForm = new Tours();
-                        ToursForm.Show();
-                    } 
-                    switch login.Text {
-                       case 
-                    }
-                }*/
-
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Profiles.Profiles.user = true;
+
             Tours ToursForm = new Tours();
             ToursForm.Show();
         }
