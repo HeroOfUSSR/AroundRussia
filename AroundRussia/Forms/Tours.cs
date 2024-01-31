@@ -38,5 +38,15 @@ namespace AroundRussia.Forms
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var tourEdit = new TourEdit();
+            tourEdit.Show();
+        }
     }
 }
