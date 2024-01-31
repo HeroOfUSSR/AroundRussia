@@ -14,6 +14,8 @@ namespace AroundRussia.Forms
     public partial class TourEdit : Form
     {
         private readonly Tour tourEdit;
+
+        public Tour Tour => tourEdit;
         public TourEdit()
         {
             InitializeComponent();
