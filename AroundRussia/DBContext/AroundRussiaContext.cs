@@ -141,8 +141,6 @@ namespace AroundRussia.DBContext
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.ImagePreview).IsUnicode(false);
-
                 entity.Property(e => e.Name)
                     .HasMaxLength(100)
                     .IsUnicode(false);

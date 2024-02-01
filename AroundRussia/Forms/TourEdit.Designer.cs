@@ -44,6 +44,8 @@
             this.addButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
+            this.descTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ticketsNumeric)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,6 +108,11 @@
             // ticketsNumeric
             // 
             this.ticketsNumeric.Location = new System.Drawing.Point(211, 113);
+            this.ticketsNumeric.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.ticketsNumeric.Name = "ticketsNumeric";
             this.ticketsNumeric.Size = new System.Drawing.Size(194, 23);
             this.ticketsNumeric.TabIndex = 6;
@@ -123,7 +130,7 @@
             this.isInternationalChecked.AutoSize = true;
             this.isInternationalChecked.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.isInternationalChecked.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.isInternationalChecked.Location = new System.Drawing.Point(76, 236);
+            this.isInternationalChecked.Location = new System.Drawing.Point(77, 328);
             this.isInternationalChecked.Name = "isInternationalChecked";
             this.isInternationalChecked.Size = new System.Drawing.Size(157, 27);
             this.isInternationalChecked.TabIndex = 8;
@@ -135,7 +142,7 @@
             this.isActualChecked.AutoSize = true;
             this.isActualChecked.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.isActualChecked.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.isActualChecked.Location = new System.Drawing.Point(239, 236);
+            this.isActualChecked.Location = new System.Drawing.Point(240, 328);
             this.isActualChecked.Name = "isActualChecked";
             this.isActualChecked.Size = new System.Drawing.Size(101, 27);
             this.isActualChecked.TabIndex = 9;
@@ -165,42 +172,65 @@
             this.addButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
             this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addButton.Location = new System.Drawing.Point(34, 292);
+            this.addButton.Location = new System.Drawing.Point(34, 380);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(371, 30);
             this.addButton.TabIndex = 12;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // cancelButton
             // 
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Location = new System.Drawing.Point(34, 328);
+            this.cancelButton.Location = new System.Drawing.Point(34, 416);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(371, 30);
             this.cancelButton.TabIndex = 13;
             this.cancelButton.Text = "Отмена";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(80)))), ((int)(((byte)(86)))));
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Location = new System.Drawing.Point(34, 364);
+            this.deleteButton.Location = new System.Drawing.Point(34, 452);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(371, 30);
             this.deleteButton.TabIndex = 14;
             this.deleteButton.Text = "Удалить";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // descTextBox
+            // 
+            this.descTextBox.Location = new System.Drawing.Point(151, 238);
+            this.descTextBox.Multiline = true;
+            this.descTextBox.Name = "descTextBox";
+            this.descTextBox.Size = new System.Drawing.Size(254, 69);
+            this.descTextBox.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.Location = new System.Drawing.Point(34, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(86, 23);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Описание";
             // 
             // TourEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 403);
+            this.ClientSize = new System.Drawing.Size(438, 492);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.descTextBox);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.addButton);
@@ -242,5 +272,7 @@
         private Button addButton;
         private Button cancelButton;
         private Button deleteButton;
+        private TextBox descTextBox;
+        private Label label3;
     }
 }

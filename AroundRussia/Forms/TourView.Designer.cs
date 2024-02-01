@@ -48,7 +48,7 @@
             this.labelName.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelName.Location = new System.Drawing.Point(0, 0);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(300, 37);
+            this.labelName.Size = new System.Drawing.Size(302, 37);
             this.labelName.TabIndex = 2;
             this.labelName.Text = "Name";
             this.labelName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -56,9 +56,9 @@
             // pictureTour
             // 
             this.pictureTour.Image = global::AroundRussia.Properties.Resources.picture;
-            this.pictureTour.Location = new System.Drawing.Point(0, 40);
+            this.pictureTour.Location = new System.Drawing.Point(26, 38);
             this.pictureTour.Name = "pictureTour";
-            this.pictureTour.Size = new System.Drawing.Size(297, 161);
+            this.pictureTour.Size = new System.Drawing.Size(248, 161);
             this.pictureTour.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureTour.TabIndex = 3;
             this.pictureTour.TabStop = false;
@@ -129,9 +129,9 @@
             this.addButton.FlatAppearance.BorderSize = 0;
             this.addButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addButton.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.addButton.Location = new System.Drawing.Point(152, 278);
+            this.addButton.Location = new System.Drawing.Point(169, 278);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(148, 40);
+            this.addButton.Size = new System.Drawing.Size(111, 40);
             this.addButton.TabIndex = 5;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
@@ -142,9 +142,9 @@
             this.editButton.FlatAppearance.BorderSize = 0;
             this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editButton.Font = new System.Drawing.Font("Comic Sans MS", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.editButton.Location = new System.Drawing.Point(0, 278);
+            this.editButton.Location = new System.Drawing.Point(26, 278);
             this.editButton.Name = "editButton";
-            this.editButton.Size = new System.Drawing.Size(148, 40);
+            this.editButton.Size = new System.Drawing.Size(111, 40);
             this.editButton.TabIndex = 6;
             this.editButton.Text = "Изменить";
             this.editButton.UseVisualStyleBackColor = false;
@@ -160,7 +160,7 @@
             this.Controls.Add(this.pictureTour);
             this.Controls.Add(this.labelName);
             this.Name = "TourView";
-            this.Size = new System.Drawing.Size(300, 318);
+            this.Size = new System.Drawing.Size(302, 318);
             ((System.ComponentModel.ISupportInitialize)(this.pictureTour)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
