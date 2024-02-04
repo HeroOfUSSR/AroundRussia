@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.addButton = new System.Windows.Forms.Button();
             this.flowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonHotel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +106,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.buttonHotel);
             this.panel2.Controls.Add(this.addButton);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 515);
@@ -134,6 +136,19 @@
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(960, 402);
             this.flowLayoutPanel.TabIndex = 2;
+            // 
+            // buttonHotel
+            // 
+            this.buttonHotel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
+            this.buttonHotel.FlatAppearance.BorderSize = 0;
+            this.buttonHotel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonHotel.Location = new System.Drawing.Point(253, 6);
+            this.buttonHotel.Name = "buttonHotel";
+            this.buttonHotel.Size = new System.Drawing.Size(244, 35);
+            this.buttonHotel.TabIndex = 1;
+            this.buttonHotel.Text = "Открыть отели";
+            this.buttonHotel.UseVisualStyleBackColor = false;
+            this.buttonHotel.Click += new System.EventHandler(this.buttonHotel_Click);
             // 
             // Tours
             // 
@@ -166,5 +181,6 @@
         private Panel panel2;
         private Button addButton;
         private FlowLayoutPanel flowLayoutPanel;
+        private Button buttonHotel;
     }
 }

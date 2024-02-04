@@ -52,5 +52,11 @@ namespace AroundRussia.Forms
                 }
             }
         }
+
+        private void buttonHotel_Click(object sender, EventArgs e)
+        {
+            var Hotels = new Hotels();
+            Hotels.Show();
+        }
     }
 }

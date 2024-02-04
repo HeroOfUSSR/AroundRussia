@@ -33,12 +33,10 @@ namespace AroundRussia.Forms
             labelisActual.Text = tour.IsActual ? "Актуален" : "Не актуален";
             labelisActual.ForeColor = tour.IsActual ? Color.Green : Color.Red;
             labelTickets.Text = tour.TicketCount.ToString();
-            /*if (tour.ImagePreview != null)
+            if (tour.ImagePreview != null)
             {
-                MemoryStream image = new MemoryStream();
-                image = new MemoryStream(tour.ImagePreview);
-                pictureTour.Image = Image.FromStream(image);            
-            }*/
+               // pictureTour.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
+            }
         }
 
         public event EventHandler<(Tour, byte[])> ImageChanged

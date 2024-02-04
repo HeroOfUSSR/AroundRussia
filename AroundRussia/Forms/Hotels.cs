@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AroundRussia.DBContext;
+using AroundRussia.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,20 @@ namespace AroundRussia.Forms
         public Hotels()
         {
             InitializeComponent();
+        }
+
+
+
+        private void Init_Datagrid()
+        {
+            using (var db = new AroundRussiaContext())
+            {
+                dataHotel.DataSource = db.Hotels.Select(x => new Hotel
+                {
+
+                })
+            }
+
         }
     }
 }
