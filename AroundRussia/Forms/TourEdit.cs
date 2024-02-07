@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -45,6 +46,7 @@ namespace AroundRussia.Forms
             costTextBox.Text = tour.Price.ToString();
             isActualChecked.Checked = tour.IsActual;
             ticketsNumeric.Value = tour.TicketCount;
+            descTextBox.Text = tour.Description;
             
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
@@ -63,7 +65,8 @@ namespace AroundRussia.Forms
         {
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
-                db.Tours.Remove(Tour);
+                db.Tours.Remove(tourEdit);
+                db.SaveChanges();
             }
             this.Close();
         }
@@ -72,7 +75,7 @@ namespace AroundRussia.Forms
         {
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
-                Tour tourero = new Tour
+                Tour newTour = new Tour
                 {
                     Name = nameTextBox.Text,
                     TourCountry = countryComboBox.SelectedItem.ToString(),
@@ -82,7 +85,8 @@ namespace AroundRussia.Forms
                     IsActual = isInternationalChecked.Checked,
                     IsInternational = isInternationalChecked.Checked,
                 };
-                db.Tours.Remove(Tour);
+                db.Tours.Add(newTour);
+                db.SaveChanges();
             }
             this.Close();
         }

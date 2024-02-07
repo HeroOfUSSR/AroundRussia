@@ -55,7 +55,7 @@ namespace AroundRussia.Forms
         {
             var tourEdit = new TourEdit(Tour);
             var result = tourEdit.ShowDialog();
-            if (result == DialogResult.OK)
+            /*if (result == DialogResult.OK)
             {
                 using (var db = new AroundRussiaContext())
                 {
@@ -82,7 +82,7 @@ namespace AroundRussia.Forms
                         this.Hide();
                     }
                 }
-            }
+            }*/
         }
     }
 }

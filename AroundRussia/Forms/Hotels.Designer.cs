@@ -36,8 +36,14 @@
             this.addButton = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataHotel = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountOfStars = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescriptionHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountryHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aroundRussiaContextBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).BeginInit();
@@ -46,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.deleteButton);
             this.panel1.Controls.Add(this.addButton);
@@ -60,7 +67,7 @@
             this.cancelButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.cancelButton.FlatAppearance.BorderSize = 0;
             this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Location = new System.Drawing.Point(6, 84);
+            this.cancelButton.Location = new System.Drawing.Point(6, 120);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(257, 30);
             this.cancelButton.TabIndex = 16;
@@ -72,7 +79,7 @@
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(80)))), ((int)(((byte)(86)))));
             this.deleteButton.FlatAppearance.BorderSize = 0;
             this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.deleteButton.Location = new System.Drawing.Point(6, 48);
+            this.deleteButton.Location = new System.Drawing.Point(6, 84);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(257, 30);
             this.deleteButton.TabIndex = 15;
@@ -104,6 +111,12 @@
             this.dataHotel.AllowUserToAddRows = false;
             this.dataHotel.AllowUserToDeleteRows = false;
             this.dataHotel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataHotel.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.NameHotel,
+            this.CountOfStars,
+            this.DescriptionHotel,
+            this.CountryHotel});
             this.dataHotel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataHotel.Location = new System.Drawing.Point(0, 0);
             this.dataHotel.Name = "dataHotel";
@@ -112,6 +125,42 @@
             this.dataHotel.Size = new System.Drawing.Size(810, 460);
             this.dataHotel.TabIndex = 2;
             // 
+            // ID
+            // 
+            this.ID.DataPropertyName = "ID";
+            this.ID.HeaderText = "ID Отеля";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // NameHotel
+            // 
+            this.NameHotel.DataPropertyName = "Name";
+            this.NameHotel.HeaderText = "Название";
+            this.NameHotel.Name = "NameHotel";
+            this.NameHotel.ReadOnly = true;
+            // 
+            // CountOfStars
+            // 
+            this.CountOfStars.DataPropertyName = "CountOfStars";
+            this.CountOfStars.HeaderText = "Количество звёзд";
+            this.CountOfStars.Name = "CountOfStars";
+            this.CountOfStars.ReadOnly = true;
+            // 
+            // DescriptionHotel
+            // 
+            this.DescriptionHotel.DataPropertyName = "Description";
+            this.DescriptionHotel.HeaderText = "Описание";
+            this.DescriptionHotel.Name = "DescriptionHotel";
+            this.DescriptionHotel.ReadOnly = true;
+            // 
+            // CountryHotel
+            // 
+            this.CountryHotel.DataPropertyName = "CountryCode";
+            this.CountryHotel.HeaderText = "Страна";
+            this.CountryHotel.Name = "CountryHotel";
+            this.CountryHotel.ReadOnly = true;
+            // 
             // hotelBindingSource
             // 
             this.hotelBindingSource.DataSource = typeof(AroundRussia.Models.Hotel);
@@ -119,6 +168,18 @@
             // aroundRussiaContextBindingSource
             // 
             this.aroundRussiaContextBindingSource.DataSource = typeof(AroundRussia.DBContext.AroundRussiaContext);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(6, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(257, 30);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Редактировать";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Hotels
             // 
@@ -149,5 +210,11 @@
         private Button cancelButton;
         private BindingSource hotelBindingSource;
         private BindingSource aroundRussiaContextBindingSource;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn NameHotel;
+        private DataGridViewTextBoxColumn CountOfStars;
+        private DataGridViewTextBoxColumn DescriptionHotel;
+        private DataGridViewTextBoxColumn CountryHotel;
+        private Button button1;
     }
 }
