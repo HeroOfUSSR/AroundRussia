@@ -35,7 +35,7 @@ namespace AroundRussia.Forms
             labelTickets.Text = tour.TicketCount.ToString();
             if (tour.ImagePreview != null)
             {
-               // pictureTour.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
+               pictureTour.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
             }
         }
 
@@ -84,5 +84,22 @@ namespace AroundRussia.Forms
                 }
             }*/
         }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void imageChangeButton_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() != DialogResult.OK)
+            {
+                return;
+            }
+            var image = File.ReadAllBytes(openFileDialog1.FileName);
+            onImageChanged?.Invoke(this, (tourView, image));
+            pictureTour.Image = Image.FromStream(new MemoryStream(image));
+        }
+
     }
 }

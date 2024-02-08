@@ -38,6 +38,8 @@
             this.labelPrice = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
+            this.imageChangeButton = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureTour)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -135,6 +137,7 @@
             this.addButton.TabIndex = 5;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // editButton
             // 
@@ -150,10 +153,28 @@
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click_1);
             // 
+            // imageChangeButton
+            // 
+            this.imageChangeButton.BackgroundImage = global::AroundRussia.Properties.Resources.picture;
+            this.imageChangeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.imageChangeButton.FlatAppearance.BorderSize = 0;
+            this.imageChangeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.imageChangeButton.Location = new System.Drawing.Point(240, 173);
+            this.imageChangeButton.Name = "imageChangeButton";
+            this.imageChangeButton.Size = new System.Drawing.Size(57, 40);
+            this.imageChangeButton.TabIndex = 7;
+            this.imageChangeButton.UseVisualStyleBackColor = true;
+            this.imageChangeButton.Click += new System.EventHandler(this.imageChangeButton_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // TourView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.imageChangeButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.panel1);
@@ -179,5 +200,7 @@
         private Panel panel2;
         private Button addButton;
         private Button editButton;
+        private Button imageChangeButton;
+        private OpenFileDialog openFileDialog1;
     }
 }

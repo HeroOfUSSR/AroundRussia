@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Hotels));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.editButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.deleteButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.CountryHotel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hotelBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aroundRussiaContextBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataHotel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelBindingSource)).BeginInit();
@@ -52,7 +52,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.editButton);
             this.panel1.Controls.Add(this.cancelButton);
             this.panel1.Controls.Add(this.deleteButton);
             this.panel1.Controls.Add(this.addButton);
@@ -61,6 +61,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(275, 560);
             this.panel1.TabIndex = 0;
+            // 
+            // editButton
+            // 
+            this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
+            this.editButton.FlatAppearance.BorderSize = 0;
+            this.editButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editButton.Location = new System.Drawing.Point(6, 48);
+            this.editButton.Name = "editButton";
+            this.editButton.Size = new System.Drawing.Size(257, 30);
+            this.editButton.TabIndex = 17;
+            this.editButton.Text = "Редактировать";
+            this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.button1_Click);
             // 
             // cancelButton
             // 
@@ -71,8 +84,9 @@
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(257, 30);
             this.cancelButton.TabIndex = 16;
-            this.cancelButton.Text = "Отмена";
+            this.cancelButton.Text = "Закрыть";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // deleteButton
             // 
@@ -97,6 +111,7 @@
             this.addButton.TabIndex = 13;
             this.addButton.Text = "Добавить";
             this.addButton.UseVisualStyleBackColor = false;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // panel2
             // 
@@ -119,9 +134,11 @@
             this.CountryHotel});
             this.dataHotel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataHotel.Location = new System.Drawing.Point(0, 0);
+            this.dataHotel.MultiSelect = false;
             this.dataHotel.Name = "dataHotel";
             this.dataHotel.ReadOnly = true;
             this.dataHotel.RowTemplate.Height = 25;
+            this.dataHotel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataHotel.Size = new System.Drawing.Size(810, 460);
             this.dataHotel.TabIndex = 2;
             // 
@@ -169,18 +186,6 @@
             // 
             this.aroundRussiaContextBindingSource.DataSource = typeof(AroundRussia.DBContext.AroundRussiaContext);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(227)))), ((int)(((byte)(232)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(6, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(257, 30);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "Редактировать";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // Hotels
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -215,6 +220,6 @@
         private DataGridViewTextBoxColumn CountOfStars;
         private DataGridViewTextBoxColumn DescriptionHotel;
         private DataGridViewTextBoxColumn CountryHotel;
-        private Button button1;
+        private Button editButton;
     }
 }

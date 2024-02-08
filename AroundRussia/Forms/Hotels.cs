@@ -36,5 +36,31 @@ namespace AroundRussia.Forms
             }
 
         }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            var editData = (HotelResponse)dataHotel.Rows[dataHotel.SelectedRows[0].Index].DataBoundItem;
+            if (editData == null)
+            {
+                MessageBox.Show("Выберите отель для редактирования");
+
+            } else
+            {
+                var hotelForEdit = new HotelEdit(editData);
+                hotelForEdit.Show();
+
+            }
+        }
+
+        private void addButton_Click(object sender, EventArgs e)
+        {
+            var hotelForEdit = new HotelEdit();
+            hotelForEdit.Show();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

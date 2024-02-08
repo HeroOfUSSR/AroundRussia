@@ -1,4 +1,5 @@
 ﻿using AroundRussia.DBContext;
+using AroundRussia.ModelResponse;
 using AroundRussia.Models;
 using System;
 using System.Collections.Generic;
@@ -14,15 +15,17 @@ namespace AroundRussia.Forms
 {
     public partial class HotelEdit : Form
     {
-        private readonly Hotel hotelEdit;
+        private readonly HotelResponse hotelEdit;
 
-        public Hotel Hotel => hotelEdit;
+        public HotelResponse Hotel => hotelEdit;
         public HotelEdit()
         {
             InitializeComponent();
-            editButton.Visible = false; 
+
+            editButton.Visible = false;
+            addButton.Visible = true;
             deleteButton.Visible = false;
-            countryComboBox.DisplayMember = nameof(Country.Name);
+            countryComboBox.DisplayMember = nameof(Country.Code);
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
                 countryComboBox.Items.AddRange(db.Countries.ToArray());
@@ -30,10 +33,11 @@ namespace AroundRussia.Forms
             }
         }
 
-        public HotelEdit(Hotel hotel) : this()
+        public HotelEdit(HotelResponse hotel) : this()
         {
             Text = "Изменить";
             addButton.Visible = false;
+            editButton.Visible = true;
             this.hotelEdit = hotel;
             nameTextBox.Text = hotel.Name;
             starsNumeric.Value = hotel.CountOfStars;
@@ -41,7 +45,9 @@ namespace AroundRussia.Forms
 
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
-                countryComboBox.SelectedItem = db.Countries.FirstOrDefault(c => c.Code == hotel.CountryCode);
+                //countryComboBox.SelectedItem = db.Countries.FirstOrDefault(c => c.Code == hotel.CountryCode);
+                countryComboBox.SelectedItem = countryComboBox.Items.Cast<Country>()
+                .FirstOrDefault(x => x.Code == hotel.CountryCode);
             }
         }
 
@@ -63,7 +69,7 @@ namespace AroundRussia.Forms
                 {
                     Name = nameTextBox.Text,
                     CountOfStars = Convert.ToInt32(starsNumeric.Value),
-                    CountryCode = countryComboBox.SelectedItem.ToString(),
+                    CountryCode = ((Country)countryComboBox.SelectedItem).Code,
                     Description = descTextBox.Text
                 };
                 db.Hotels.Add(newHotel);
@@ -79,18 +85,20 @@ namespace AroundRussia.Forms
                 var editHotel = db.Hotels.FirstOrDefault(x => x.Id == hotelEdit.Id);
                 editHotel.Name = nameTextBox.Text;
                 editHotel.CountOfStars = Convert.ToInt32(starsNumeric.Value);
-                editHotel.CountryCode = countryComboBox.SelectedItem.ToString();
+                editHotel.CountryCode = ((Country)countryComboBox.SelectedItem).Code;
                 editHotel.Description = descTextBox.Text;
                 db.Hotels.Update(editHotel);
                 db.SaveChanges();
-            }    
+            }
+            this.Close();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
             using (var db = new AroundRussiaContext(DBOptions.Options()))
             {
-                db.Hotels.Remove(hotelEdit);
+                var deleteHotel = db.Hotels.FirstOrDefault(x => x.Id == hotelEdit.Id);
+                db.Hotels.Remove(deleteHotel);
                 db.SaveChanges();
             }
             this.Close();

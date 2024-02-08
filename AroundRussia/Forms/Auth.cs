@@ -38,7 +38,7 @@ namespace AroundRussia
                             Profiles.Profiles.user = true;
                             break;
                     }
-                        
+
                 } else
                 {
                     MessageBox.Show("Неверный пароль или логин", "Ошибка авторизации");
