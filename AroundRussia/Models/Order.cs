@@ -11,9 +11,10 @@ namespace AroundRussia.Models
         public int Amount { get; set; }
         public int Cost { get; set; }
         public double? Discount { get; set; }
-        public string PickUpPoint { get; set; } = null!;
-        public string PickUpCode { get; set; } = null!;
+        public string CodePickUp { get; set; } = null!;
 
         public virtual Tour Tour { get; set; } = null!;
+
+        public virtual PickUpPoint PickUpPoint { get; set; } = null!;
     }
 }

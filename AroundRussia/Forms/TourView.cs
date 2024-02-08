@@ -17,6 +17,9 @@ namespace AroundRussia.Forms
     {
         private readonly Tour tourView;
         private EventHandler<(Tour, byte[])> onImageChanged;
+        private EventHandler countOrders;
+
+        public event Action<Tour> addIntoOrder;
 
         public TourView(Tour tour)
         {
@@ -37,6 +40,12 @@ namespace AroundRussia.Forms
             {
                pictureTour.Image = Image.FromStream(new MemoryStream(tour.ImagePreview));
             }
+            if (Auth.profile.RoleId == 3 || Auth.profile.RoleId == 4)
+            {
+                editButton.Visible = false;
+                imageChangeButton.Visible = false;
+            }
+            else return;
         }
 
         public event EventHandler<(Tour, byte[])> ImageChanged
@@ -48,6 +57,18 @@ namespace AroundRussia.Forms
             remove
             {
                 onImageChanged -= value;
+            }
+        }
+
+        public event EventHandler CountNewOrders
+        {
+            add
+            {
+                countOrders += value;
+            }
+            remove
+            {
+                countOrders -= value;
             }
         }
 
@@ -87,7 +108,11 @@ namespace AroundRussia.Forms
 
         private void addButton_Click(object sender, EventArgs e)
         {
-
+            if (tourView.IsActual)
+            {
+                addIntoOrder?.Invoke(tourView);
+                countOrders?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void imageChangeButton_Click(object sender, EventArgs e)

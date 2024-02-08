@@ -26,6 +26,7 @@ namespace AroundRussia.DBContext
         public virtual DbSet<Tour> Tours { get; set; } = null!;
         public virtual DbSet<Type> Types { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
+        public virtual DbSet<PickUpPoint> PickUpPoints { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -94,18 +95,14 @@ namespace AroundRussia.DBContext
                 entity.HasKey(e => e.IdOrder);
 
                 entity.Property(e => e.IdOrder)
-                    .ValueGeneratedNever()
                     .HasColumnName("ID_Order");
 
                 entity.Property(e => e.DateOrder).HasColumnName("Date_Order");
 
-                entity.Property(e => e.PickUpCode)
+                entity.Property(e => e.CodePickUp)
                     .HasMaxLength(3)
-                    .IsFixedLength();
-
-                entity.Property(e => e.PickUpPoint)
-                    .HasMaxLength(50)
-                    .IsUnicode(false);
+                    .IsFixedLength()
+                    .HasColumnName("CodePickUp");
 
                 entity.Property(e => e.TourId)
                     .HasMaxLength(50)
@@ -117,6 +114,13 @@ namespace AroundRussia.DBContext
                     .HasForeignKey(d => d.TourId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Orders_Tour");
+
+                entity.HasOne(d => d.PickUpPoint)
+                    .WithMany(p => p.Orders)
+                    .HasForeignKey(d => d.CodePickUp)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Orders_PickUpPoint");
+
             });
 
             modelBuilder.Entity<Role>(entity =>
@@ -205,6 +209,13 @@ namespace AroundRussia.DBContext
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Users_Roles");
+            });
+
+            modelBuilder.Entity<PickUpPoint>(entity =>
+            {
+                entity.HasKey(p => p.PickUpCode);
+
+                entity.ToTable("PickUpPoint");
             });
 
             OnModelCreatingPartial(modelBuilder);

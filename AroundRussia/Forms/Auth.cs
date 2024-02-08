@@ -8,6 +8,7 @@ namespace AroundRussia
 {
     public partial class Auth : Form
     {
+        public static User profile { get; set; }
         public Auth()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace AroundRussia
                 if (db.Users.Any(a => a.Username == login && a.Password == password))
                 {
                     var currentUser = db.Users.FirstOrDefault(a => a.Username == login && a.Password == password);
+                    profile = currentUser;
                     Tours ToursForm = new Tours();
                     ToursForm.Show();
                     switch (currentUser.RoleId)
@@ -48,8 +50,10 @@ namespace AroundRussia
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Profiles.Profiles.user = true;
-
+            using (var db = new AroundRussiaContext(DBOptions.Options()))
+            {
+                profile = db.Users.FirstOrDefault(x => x.Username == "guest" && x.Password == "guest");
+            }
             Tours ToursForm = new Tours();
             ToursForm.Show();
         }
